@@ -76,6 +76,7 @@ namespace NpgsqlTypes
         Json,
         Jsonb,
         Hstore,
+        Citext,
     }
 }
 

@@ -461,6 +461,10 @@ namespace NpgsqlTypes
                 BasicNativeToBackendTypeConverter.StringToTextText,
                 BasicNativeToBackendTypeConverter.StringToTextBinary);
 
+            nativeTypeMapping.AddType("citext", NpgsqlDbType.Citext, DbType.String, false,
+                                            BasicNativeToBackendTypeConverter.StringToTextText,
+                                            BasicNativeToBackendTypeConverter.StringToTextBinary);
+
             nativeTypeMapping.AddDbTypeAlias("unknown", DbType.Object);
 
             return nativeTypeMapping;
@@ -593,6 +597,10 @@ namespace NpgsqlTypes
             yield return new NpgsqlBackendTypeInfo(0, "hstore", NpgsqlDbType.Hstore, DbType.Object, typeof(String),
                 null,
                 BasicBackendToNativeTypeConverter.TextBinaryToString);
+
+            yield return new NpgsqlBackendTypeInfo(0, "citext", NpgsqlDbType.Citext, DbType.String, typeof(String),
+                                            null,
+                                            BasicBackendToNativeTypeConverter.TextBinaryToString);
 
             if (useExtendedTypes)
             {
